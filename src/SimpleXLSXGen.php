@@ -317,6 +317,7 @@ class SimpleXLSXGen
         header('Content-Disposition: attachment; filename="' . str_replace(["\0","\r","\n","\t",'"'], '', $filename) . '"');
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s \G\M\T', time()));
         header('Content-Length: ' . $size);
+        header('Connection: close');
         while (ob_get_level()) {
             ob_end_clean();
         }
